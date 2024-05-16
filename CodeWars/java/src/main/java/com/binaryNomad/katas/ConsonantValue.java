@@ -1,4 +1,4 @@
-package org.example;
+package com.binaryNomad.katas;
 
 import static java.util.stream.Stream.of;
 

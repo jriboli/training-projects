@@ -1,6 +1,5 @@
-package org.example;
+package com.binaryNomad.katas;
 
-import java.math.BigInteger;
 import java.util.*;
 
 //https://www.codewars.com/kata/525f4206b73515bffb000b21/train/java
@@ -50,7 +49,7 @@ public class AddingBigNumbers {
             }
         }
 
-        for(int i =results.size(); )
+        //for(int i =results.size(); )
 
         return results;
     }

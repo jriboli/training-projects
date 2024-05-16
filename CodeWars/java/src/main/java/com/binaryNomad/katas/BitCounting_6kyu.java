@@ -1,4 +1,4 @@
-package org.example;
+package com.binaryNomad.katas;
 
 public class BitCounting_6kyu {
     public static int countBits(int n){

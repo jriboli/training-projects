@@ -1,4 +1,4 @@
-package org.example;
+package com.binaryNomad.katas;
 
 import java.util.HashMap;
 import java.util.Map;
