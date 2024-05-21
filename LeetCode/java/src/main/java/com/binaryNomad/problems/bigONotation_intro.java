@@ -65,7 +65,7 @@ public class bigONotation_intro {
     public void DiffLoopingArray(Integer[] numbers) {
         /*
          * The algorithmn is of O(n^2)
-         * The inner loop is dependent on what iterations the outer 
+         * The inner loop is dependent on what iterations the outer
          */
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i; j < numbers.length; j++) {
