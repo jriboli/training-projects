@@ -1,7 +1,6 @@
 package com.binaryNomad.problems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArraysNStrings_TwoPointers {
@@ -153,30 +152,76 @@ public class ArraysNStrings_TwoPointers {
      * in non-decreasing order
      */
     public static int[] sortedSquares(int[] nums) {
-        int firstPositive = 0;
+        int firstPositive = nums.length-1;
         for(int i = 0; i < nums.length; i++) {
-            if(nums[i] > 0 && firstPositive == 0)
+            if(nums[i] >= 0 && firstPositive == nums.length-1)
                 firstPositive = i;
             nums[i] = nums[i] * nums[i];
         }
 
+        //System.out.println("First Positive: " + firstPositive);
+
         int[] results = new int[nums.length];
-        int i = 0;
+        int i = firstPositive - 1;
         int j = firstPositive;
-        System.out.println("First Positive: " + j);
-        while (i < nums.length) {
-            if(i == 0) {
-                results[i] = nums[j];
-            } else if(nums[j-i] <= nums[j+i]) {
-                results[i] = nums[j - i];
-                results[i+1] = nums[j + i];
+        int index = 0;
+        while (index < nums.length) {
+            //System.out.println("I: " + i);
+            //System.out.println("J: " + j);
+            if(i < 0){
+                //System.out.println("If i < 0");
+                results[index] = nums[j];
+                j++;
+            }else if (j >= nums.length) {
+                //System.out.println("If j > max");
+                results[index] = nums[i];
+                i--;
+            } else if (nums[i] <= nums[j]){
+                //System.out.println("If i <= j");
+                results[index] = nums[i];
+                i--;
             } else {
-                results[i] = nums[j + i];
-                results[i+1] = nums[j - i];
+                //System.out.println("else");
+                results[index] = nums[j];
+                j++;
             }
-            i += 2;
-            Arrays.stream(results).forEach(System.out::println);
-            System.out.println("-----------");
+
+            index++;
+
+            //Arrays.stream(results).forEach(System.out::println);
+            //System.out.println("-----------");
+        }
+
+        return results;
+    }
+
+    public static int[] sortedSquaresRevised(int[] nums) {
+        // NOT FINISHED 
+        int firstPositive = nums.length -1;
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] >= 0 && firstPositive == nums.length-1)
+                firstPositive = i;
+            nums[i] = nums[i] * nums[i];
+        }
+
+        int i = firstPositive - 1;
+        int j = firstPositive;
+        while (i < nums.length - 1 && j > 0) {
+            //System.out.println("I:"+i+" | J:"+j+" | first:"+firstPositive);
+            //System.out.println("Comparing: " + i + "<" + j);
+            if(nums[i] <= nums[j]) {
+                System.out.println("One");
+                j++;
+            } else {
+                System.out.println("Two");
+                int tempNum = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tempNum;
+                if(j <= firstPositive) {
+                    System.out.println("Enter");
+                    i++;
+                }
+            }
         }
 
         return nums;

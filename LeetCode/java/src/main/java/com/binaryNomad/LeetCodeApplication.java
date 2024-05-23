@@ -16,9 +16,14 @@ public class LeetCodeApplication {
         System.out.println(ArraysNStrings_TwoPointers.reverseString(new char[]{'H','a','n','n','a','h'}));
 
         // Problem 2
-        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquares(new int[]{-7, -3, 2, 3, 11}))
-                .forEach(i -> System.out.println(i));
-        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquares(new int[]{-5, -3, -2, -1}))
-                .forEach(i -> System.out.println(i));
+        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquaresRevised(new int[]{-7, -3, 2, 3, 11})).forEach(i -> System.out.println(i));
+        System.out.println("--------");
+        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquaresRevised(new int[]{-4, -1, 0, 3, 10})).forEach(i -> System.out.println(i));
+        System.out.println("--------");
+        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquaresRevised(new int[]{-5, -3, -2, -1})).forEach(i -> System.out.println(i));
+        System.out.println("--------");
+        Arrays.stream(ArraysNStrings_TwoPointers.sortedSquaresRevised(new int[]{-1, 2, 2})).forEach(i -> System.out.println(i));
+        System.out.println("--------");
+        //Arrays.stream(ArraysNStrings_TwoPointers.sortedSquaresAttempt2(new int[]{-10000, -9999, -7, -5, 0, 0, 10000})).forEach(i -> System.out.println(i));
     }
 }
