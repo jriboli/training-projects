@@ -1,6 +1,7 @@
 package com.binaryNomad.problems;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ArraysNStrings_TwoPointers {
@@ -113,4 +114,71 @@ public class ArraysNStrings_TwoPointers {
     /*
      * Example 4: Given two string s and t, return true is s if a subsequence of t, or false otherwise.
      */
+    public boolean isSubsequence(String s, String t) {
+        int i = 0;
+        int j = 0;
+
+        while(i < s.length() && j < t.length()) {
+            if(s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+
+        return i == s.length();
+    }
+
+    /*
+     * Problem 1: Write a function that reverses a string. The input string is given as an array of characters s.
+     * You must do this by modifying the input array 'in-place' with O(1) for space complexity
+     */
+    public static char[] reverseString(char[] s) {
+        int first = 0;
+        int last = s.length - 1;
+
+        while(first < last) {
+            char tempLast = s[last];
+            s[last] = s[first];
+            s[first] = tempLast;
+
+            first++;
+            last--;
+        }
+
+        return s;
+    }
+
+    /*
+     * Problem 2: Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted
+     * in non-decreasing order
+     */
+    public static int[] sortedSquares(int[] nums) {
+        int firstPositive = 0;
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] > 0 && firstPositive == 0)
+                firstPositive = i;
+            nums[i] = nums[i] * nums[i];
+        }
+
+        int[] results = new int[nums.length];
+        int i = 0;
+        int j = firstPositive;
+        System.out.println("First Positive: " + j);
+        while (i < nums.length) {
+            if(i == 0) {
+                results[i] = nums[j];
+            } else if(nums[j-i] <= nums[j+i]) {
+                results[i] = nums[j - i];
+                results[i+1] = nums[j + i];
+            } else {
+                results[i] = nums[j + i];
+                results[i+1] = nums[j - i];
+            }
+            i += 2;
+            Arrays.stream(results).forEach(System.out::println);
+            System.out.println("-----------");
+        }
+
+        return nums;
+    }
 }
