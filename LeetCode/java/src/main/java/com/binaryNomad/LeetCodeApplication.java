@@ -31,7 +31,7 @@ public class LeetCodeApplication {
         // Problem 1
 
         // Problem 2
-        System.out.println(ArraysNStrings_SlidingWindow.longestOne(new int[]{1,1,1,0,0,0,1,1,1,1,0}, 2));
-        System.out.println(ArraysNStrings_SlidingWindow.longestOne(new int[]{0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1}, 3));
+        System.out.println(ArraysNStrings_SlidingWindow.longestOnes(new int[]{1,1,1,0,0,0,1,1,1,1,0}, 2));
+        System.out.println(ArraysNStrings_SlidingWindow.longestOnes(new int[]{0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1}, 3));
     }
 }
