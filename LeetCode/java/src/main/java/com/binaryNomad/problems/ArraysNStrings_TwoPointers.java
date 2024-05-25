@@ -152,6 +152,10 @@ public class ArraysNStrings_TwoPointers {
      * in non-decreasing order
      */
     public static int[] sortedSquares(int[] nums) {
+        /*
+         * Algorithm has 0(1) space complexity
+         * and have O(n) time complexity
+         */
         int firstPositive = nums.length-1;
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] >= 0 && firstPositive == nums.length-1)
@@ -196,7 +200,7 @@ public class ArraysNStrings_TwoPointers {
     }
 
     public static int[] sortedSquaresRevised(int[] nums) {
-        // NOT FINISHED 
+        // NOT FINISHED
         int firstPositive = nums.length -1;
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] >= 0 && firstPositive == nums.length-1)
