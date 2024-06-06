@@ -36,6 +36,13 @@ public class LeetCodeApplication {
         //System.out.println(ArraysNStrings_SlidingWindow.longestOnes(new int[]{0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1}, 3));
 
         // ******************** Arrays N Strings - Prefix Sum ********************
-        ArraysNStrings_PrefixSum.answerQueries(new int[]{1,6,3,2,7,2}, new int[][]{{0,3}, {2,5}, {2,4}}, 13);
+        //ArraysNStrings_PrefixSum.answerQueries(new int[]{1,6,3,2,7,2}, new int[][]{{0,3}, {2,5}, {2,4}}, 13);
+        //ArraysNStrings_PrefixSum.waysToSplitArray(new int[] {10,4,-8,7});
+
+        // Problem 2
+        //System.out.println("Problem 2: " + ArraysNStrings_PrefixSum.minStartValue(new int[] {-3, 2, -3, 4, 2}));
+
+        // Problem 3
+        ArraysNStrings_PrefixSum.getAverages(new int[] {7,4,3,9,1,8,5,2,6}, 3);
     }
 }

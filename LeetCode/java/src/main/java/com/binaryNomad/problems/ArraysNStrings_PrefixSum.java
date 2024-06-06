@@ -53,6 +53,92 @@ public class ArraysNStrings_PrefixSum {
      * first section has a sum greater than or equal to the sum of the second section.
      */
     public static int waysToSplitArray(int[] nums) {
-        
+        int[] prefix = new int[nums.length];
+        prefix[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            prefix[i] = prefix[i -1] + nums[i];
+        }
+
+        int ans = 0;
+        for (int i = 0; i < prefix.length - 1; i++) {
+            int left_section = prefix[i];
+            int right_section = prefix[prefix.length -1] - prefix[i];
+            if(left_section >= right_section) {
+                ans += 1;
+            }
+        }
+
+        System.out.println("Ways 2 Split: " + ans);
+        return ans;
+    }
+
+    /*
+     * Problem 1: Given an array nums, We define a running sum of an array as runningSum[i] = sum(nums[0]...nums[i])
+     * Return the running sum of nums
+     */
+    public static int[] runningSum(int[] nums) {
+        int[] prefix = new int[nums.length];
+        prefix[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            prefix[i] = prefix[i -1] + nums[i];
+        }
+
+        return prefix;
+    }
+
+    /*
+     * Problem 2: Given an array of integers nums, you start with an initial positive value 'startValue'.
+     * In each iteration, you calculate the step by step sum of startValue plus elements in nums (left to right)
+     * Return the minimum positive value of startValue such that the step by step sum is never less than 1.
+     */
+    public static int minStartValue(int[] nums) {
+        int minStartValue = 1;
+        int currSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            currSum += nums[i];
+            while(minStartValue + currSum < 1) {
+                minStartValue += 1;
+            }
+        }
+
+        return minStartValue;
+    }
+
+    /***
+     * Problem 3: Given a 0-indexed array nums of n integers, and an integer k.
+     * The k-radius average for a subarray of nums centered at some index i with the radius k is the average of all
+     * elements in nums between the indices i -k and i + k (inclusive)
+     */
+    public static int[] getAverages(int[] nums, int k) {
+        int[] prefix = new int[nums.length];
+        prefix[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            prefix[i] = prefix[i -1] + nums[i];
+        }
+
+        int[] avgs = new int[nums.length];
+        for(int i = 0; i < nums.length; i++) {
+            int span = i + (k * 2);
+            if(i < k || (nums.length - i) <= k) {
+                System.out.println("Catch Answer: " + -1);
+                avgs[i] = -1;
+            } else if (i == k ) {
+                int ans = prefix[i+k] / span;
+                System.out.println("Else Answer: " + ans);
+                avgs[i] = ans;
+            } else {
+                int left = prefix[i-k] - nums[i];
+                int right = prefix[i+k];
+                System.out.println("Left: " + left + " || Right: " + right);
+                int ans = (right - left) / span;
+                System.out.println("Answer: " + ans);
+                avgs[i] = ans;
+            }
+        }
+
+        return avgs;
     }
 }
